@@ -10,6 +10,6 @@ class Scan(models.Model):
         ordering = ['-time_register']
 
     def __str__(self):
-        date_time = (self.time_register).strftime("%d/%m/%y %H:%M:%S")
-        return date_time
+        date_time = (self.time_register).timestamp()
+        return str(date_time)
 
