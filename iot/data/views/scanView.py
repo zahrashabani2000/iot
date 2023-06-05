@@ -2,13 +2,13 @@ from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from data import serializers, models
+from ..serializers.dataSerializer import DataSerializer
+
 
 class ScanView(APIView):
-    serializer_class = serializers.Data_serializer
+    serializer_class = DataSerializer
     
     def post(self, request):
-        """Create a user"""
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -16,6 +16,3 @@ class ScanView(APIView):
                              status=status.HTTP_201_CREATED)
         return Response(serializer.errors,
                          status=status.HTTP_400_BAD_REQUEST)
-
-
-
