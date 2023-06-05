@@ -4,7 +4,8 @@ from datetime import datetime
 
 class Scan(models.Model):
     uuid = models.IntegerField()
-    time_register = models.DateTimeField(auto_now=True)
+    time_register = models.DateTimeField(auto_now=True, db_column='timestamp')
+
     
     class Meta:
         ordering = ['-time_register']
