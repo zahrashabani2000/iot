@@ -1,6 +1,4 @@
 from django.db import models
-from datetime import datetime
-
 
 class Scan(models.Model):
     uuid = models.IntegerField()
