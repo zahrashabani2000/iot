@@ -10,7 +10,8 @@ class Scan(models.Model):
     class Meta:
         ordering = ['-time_register']
 
-    def __str__(self):
-        date_time = (self.time_register).timestamp()
-        return str(date_time)
-
+    def __str__(self) -> str:
+        return self.time_register
+    
+    def __repr__(self) -> str:
+        return self.time_register
